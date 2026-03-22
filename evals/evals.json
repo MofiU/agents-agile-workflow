@@ -1,0 +1,155 @@
+{
+  "skill_name": "agile-workflow",
+  "evals": [
+    {
+      "id": 1,
+      "eval_name": "sprint-planning",
+      "prompt": "Start Sprint 3. PO says goal: 'Complete user profile and order history features'. Capacity: 8 tasks. Backlog: profile UI (task), profile API (task), order UI (task), order API (task), profile-order integration (task). Generate sprint backlog with task assignments.",
+      "expected_output": "Sprint Backlog markdown with goal, task table (ID/Task/Type/Assigned/State), Definition of Done",
+      "files": [],
+      "assertions": [
+        {
+          "text": "Sprint goal is one sentence",
+          "passed": null,
+          "evidence": ""
+        },
+        {
+          "text": "Task table has Type column (frontend/backend/qa)",
+          "passed": null,
+          "evidence": ""
+        },
+        {
+          "text": "Tasks are assigned to agents",
+          "passed": null,
+          "evidence": ""
+        },
+        {
+          "text": "All tasks start in Ready state",
+          "passed": null,
+          "evidence": ""
+        },
+        {
+          "text": "Definition of Done includes: tests pass, 2 approvals, CI green",
+          "passed": null,
+          "evidence": ""
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "eval_name": "sprint-status",
+      "prompt": "Day 5 of Sprint 3. Completed yesterday: profile API, login page. Today: profile page (Alice), order API (Bob), profile tests (Carol). One blocker: order API depends on external payment gateway (P2). Update the board and burndown.",
+      "expected_output": "Sprint Status markdown with board state, active blockers table, burndown info",
+      "files": [],
+      "assertions": [
+        {
+          "text": "Board state shows correct counts per state",
+          "passed": null,
+          "evidence": ""
+        },
+        {
+          "text": "Blocker is logged with P2 priority and 24h SLA",
+          "passed": null,
+          "evidence": ""
+        },
+        {
+          "text": "Workaround is suggested for blocked work",
+          "passed": null,
+          "evidence": ""
+        },
+        {
+          "text": "Remaining days is accurate (5 days)",
+          "passed": null,
+          "evidence": ""
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "eval_name": "sprint-review",
+      "prompt": "Day 10 of Sprint 3. Sprint goal was 'Complete user profile and order history'. Completed: profile UI, profile API, order UI. Partially done: order API (90%). Not done: profile-order integration (blocked). Generate sprint review report.",
+      "expected_output": "Sprint Review markdown with goal assessment, completed items, carry-over tasks with reasons",
+      "files": [],
+      "assertions": [
+        {
+          "text": "Goal achievement is assessed (met/partially/not met)",
+          "passed": null,
+          "evidence": ""
+        },
+        {
+          "text": "Completed tasks are listed",
+          "passed": null,
+          "evidence": ""
+        },
+        {
+          "text": "Carry-over tasks are identified with reason",
+          "passed": null,
+          "evidence": ""
+        },
+        {
+          "text": "Velocity metric is calculated",
+          "passed": null,
+          "evidence": ""
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "eval_name": "sprint-retro",
+      "prompt": "Generate retro for Sprint 3 based on: 2 blockers (P2 payment API, P1 auth timeout), 3 tasks reworked due to spec changes, 1 PR took 3 days to get 2 approvals. Suggest 2 concrete improvements.",
+      "expected_output": "Sprint Retro markdown with what worked, what didn't, specific action items",
+      "files": [],
+      "assertions": [
+        {
+          "text": "Issues are categorized (blocker/process)",
+          "passed": null,
+          "evidence": ""
+        },
+        {
+          "text": "Root cause is identified for top issue",
+          "passed": null,
+          "evidence": ""
+        },
+        {
+          "text": "Action items are specific and actionable (not vague)",
+          "passed": null,
+          "evidence": ""
+        },
+        {
+          "text": "Suggestions are concrete improvements, not generic",
+          "passed": null,
+          "evidence": ""
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "eval_name": "blocker-escalation",
+      "prompt": "TASK-042 (order API) has been blocked for 4 hours - external payment gateway returns 500 errors. Priority P2. The backend dev tried: retry logic, fallback endpoint. Still failing. What do I do as SM?",
+      "expected_output": "Blocker escalation with workaround options and PO decision request",
+      "files": [],
+      "assertions": [
+        {
+          "text": "Blocker is escalated correctly (P2, 4h elapsed within 24h SLA)",
+          "passed": null,
+          "evidence": ""
+        },
+        {
+          "text": "Workaround options are proposed (mock/skip/alternative)",
+          "passed": null,
+          "evidence": ""
+        },
+        {
+          "text": "Escalation path is followed: SM requests PO decision",
+          "passed": null,
+          "evidence": ""
+        },
+        {
+          "text": "Impact on dependent tasks is noted",
+          "passed": null,
+          "evidence": ""
+        }
+      ]
+    }
+  ]
+}
