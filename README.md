@@ -4,24 +4,35 @@
 
 A lightweight agile framework designed for **AI agent teams**. Replaces human-centric ceremonies with efficient autonomous workflows.
 
-## 🤖 Why This Exists
+## 📦 Project Structure
 
-Traditional agile assumes humans who:
-- Need daily standups to know what's happening
-- Require encouragement and "psychological safety"
-- Miss meetings, forget things, have conflicts
+```
+agents-agile-workflow/
+├── SKILL.md                    # Main skill - workflow orchestration
+├── agents/                      # Role/persona definitions
+│   ├── sprint-master.md        # Sprint orchestrator
+│   ├── product-owner.md        # Goal & priority definition
+│   ├── developer-agent.md       # Task execution with TDD
+│   ├── qa-agent.md              # Quality verification
+│   └── code-reviewer.md        # PR reviews
+├── evals/
+│   └── evals.json              # Test cases
+├── README.md
+├── CONTRIBUTING.md
+└── .gitignore
+```
 
-**AI teams don't have these problems.** This framework strips out the ceremony and keeps the structure.
+## 🤖 The Roles
 
-## 📦 The Agents
+Each agent follows the agency-agents format with identity, persona, rules, and workflows.
 
-| Agent | Role | When Active |
-|-------|------|-------------|
-| [Agile Sprint Master](agile-sprint-master.md) | Orchestrates sprints | Day 1, Day 10, blockers |
-| [Agile Product Owner](agile-product-owner.md) | Defines goals, prioritizes | Day 1, spec unclear |
-| [Agile Developer Agent](agile-developer-agent.md) | Executes tasks, ships code | Daily |
-| [Agile QA Agent](agile-qa-agent.md) | Verifies quality | On PR |
-| [Agile Code Reviewer](agile-code-reviewer.md) | Second approval gate | On PR |
+| Agent | File | Responsibility |
+|-------|------|----------------|
+| **Sprint Master** | `agents/sprint-master.md` | Orchestrates sprints, tracks metrics |
+| **Product Owner** | `agents/product-owner.md` | Defines goals, prioritizes |
+| **Developer Agent** | `agents/developer-agent.md` | Executes tasks, TDD |
+| **QA Agent** | `agents/qa-agent.md` | Verifies quality |
+| **Code Reviewer** | `agents/code-reviewer.md` | Reviews PRs |
 
 ## ⚡ Quick Start
 
@@ -76,8 +87,6 @@ Backlog → Ready → In Progress → In Review → Accepted
 | P2 | Build broken | 24h | Fix or mock |
 | P3 | Unclear spec | 1w | PO clarifies |
 
-**Path**: Agent → Sprint Master → Product Owner
-
 ## 📈 What We Skip (AI Teams)
 
 | Human Agile | AI Team |
@@ -88,19 +97,15 @@ Backlog → Ready → In Progress → In Review → Accepted
 | Retrospective "feelings" | Auto-collected metrics |
 | Team bonding | No-op |
 | Attendance tracking | N/A |
-| Psychological safety | N/A |
 
-## 📁 Project Structure
+## 🧪 Testing
 
-```
-agents-agile-workflow/
-├── agile-sprint-master.md     # Core orchestrator
-├── agile-product-owner.md     # PO role
-├── agile-developer-agent.md   # Developer role
-├── agile-qa-agent.md          # QA role
-├── agile-code-reviewer.md     # Reviewer role
-├── README.md
-└── CONTRIBUTING.md
+```bash
+# Generate eval viewer
+python ~/.agents/skills/skill-creator/eval-viewer/generate_review.py \
+  agents-agile-workflow-workspace/iteration-1 \
+  --skill-name "agile-workflow" \
+  --static /tmp/eval_review.html
 ```
 
 ## 🤝 Contributing
